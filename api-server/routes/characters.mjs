@@ -9,6 +9,7 @@ router.get("/search", async (req, res) => {
     const url =
       `${process.env.API_BASE_URL}/characters/?api_key=${process.env.API_KEY}` +
       `&format=json&filter=name:${encodeURIComponent(query)}&limit=12`;
+      console.log("Comic Vine URL:", url);
     const response = await fetch(url);
     const data = await response.json();
 
@@ -27,6 +28,7 @@ router.get("/search", async (req, res) => {
       error: data.error
     });
   } catch (error) {
+    console.error("Comic Vine route error:", error);
     res.status(500).json({ error: "An error occurred while fetching character data" });
   }
 });
