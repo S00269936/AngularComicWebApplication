@@ -1,0 +1,24 @@
+.goBackBtn{
+    width: 200px;
+}
+.characterPage{
+    max-width: 1000px;
+}
+.characterDetailCard{
+    padding: 2rem;
+    border-radius: 20px;
+}
+.characterImg{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+.characterAccordion{
+    height: 100%;
+    border-radius: 15px;
+}
+.accordion-body{
+    max-height: 300px;
+    overflow-y: auto;
+}
