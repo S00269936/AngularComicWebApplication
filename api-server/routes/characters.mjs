@@ -47,7 +47,7 @@ router.get("/:id", async (req, res) => {
             aliases: character.aliases,
             gender: character.gender,
             origin: character.origin?.name || null,
-            powers: character.powers?.map(power => power.name).join(", ") || null,
+            powers: Array.isArray(character.powers)? character.powers.map(power => power.name).join(",") : null,
             image: character.image?.medium_url || null,
             description: character.description,
             deck: character.deck,
@@ -55,6 +55,7 @@ router.get("/:id", async (req, res) => {
             count_of_issue_appearances: character.count_of_issue_appearances
         });
     } catch (error) {
+      console.error("Comic Vine character details error:", error);
         res.status(500).json({ error: "An error occurred while fetching character details" });
     }
     })
