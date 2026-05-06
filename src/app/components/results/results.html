@@ -7,6 +7,7 @@
             <div>
                 <h5>{{character.name}}</h5>
                 <p>{{character.deck || `No description found.`}}</p>
+                <a [routerLink]="['/character', character.id]" class="btn btn-secondary">View Details</a>
             </div>
         </div>
     }
