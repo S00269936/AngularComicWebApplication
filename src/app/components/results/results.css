@@ -1,4 +1,70 @@
-
+.results{
+    max-width: 1000px;
+    background: #ffffff;
+    border: 4px solid #1E3A8A;
+    border-radius: 24px;
+    padding: 35px;
+    box-shadow: 6px 6px 0 #000;
+}
+.characterCard{
+    border: 4px solid #000;
+    border-radius: 18px;
+    box-shadow: 6px 6px 0 #1E3A8A;
+}
+.characterCard:hover{
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0 #dc2626;
+}
 .characterImg{
-    
+    height: 300px;
+    border-bottom: 4px solid #000;
+}
+.card-title{
+    font-weight: 900;
+    color: #1E3A8A;
+    text-transform: uppercase;
+    font-family: "Bangers", cursive;
+}
+.viewBtn{
+    background: #facc15;
+    border: 3px solid #000;
+    border-radius: 12px;
+    font-weight: 900;
+    color: #111;
+    box-shadow: 4px 4px 0 #000;
+}
+.viewBtn:hover{
+    background: #dc2626;
+    color: white;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #000;
+}
+.pagination{
+    margin-top: 30px;
+    align-items: center;
+    justify-content: space-between;
+}
+.paginationBtn{
+    background: #facc15;
+    border: 3px solid #000;
+    border-radius: 12px;
+    font-weight: 900;
+    box-shadow: 4px 4px 0 #000;
+}
+.paginationBtn:hover{
+    background: #dc2626;
+    color: white;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #000;
+}
+.paginationBtn:disabled{
+    background: #e5e7eb;
+    color: #9ca3af;
+    border-color: #9ca3af;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+.pageInfo{
+    font-weight: 700;
+    color: #1E3A8A;
 }

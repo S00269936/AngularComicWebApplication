@@ -1,7 +1,7 @@
 @if (characters.length > 0){
-    <div class="container results mt-4">
+    <div class="container results mt-4 mb-4">
         <div class="row g-4">
-            @for (character of characters; track character.id){
+            @for (character of paginatedCharacters; track character.id){
                 <div class="col-md-4">
                     <div class="card characterCard h-100">
                         <img [src]="character.image || 'assets/placeholder.png'" [alt]="character.name" class="card-img-top characterImg">

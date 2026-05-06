@@ -19,6 +19,10 @@ export class Results {
     return Math.ceil(this.characters.length / this.pageSize);
     //calculates total pages based on number oc characters and page size
   }
+  get paginatedCharacters(){
+    const start = (this.currentPage - 1) * this.pageSize;
+    return this.characters.slice(start, start + this.pageSize);
+  }
   nextPage(){
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
