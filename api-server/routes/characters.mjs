@@ -1,5 +1,6 @@
 import express from "express";
 const router = express.Router();
+//Basic search
 router.get("/search", async (req, res) => {
   try {
     const query = req.query.query;
@@ -32,5 +33,29 @@ router.get("/search", async (req, res) => {
     res.status(500).json({ error: "An error occurred while fetching character data" });
   }
 });
-
+//Search for extra details about a character
+router.get("/:id", async (req, res) => {
+    try{
+        const id= req.params.id;
+        const url= `${process.env.API_BASE_URL}/character/4005-${id}/?api_key=${process.env.API_KEY}&format=json`;
+        const response = await fetch(url);
+        const data = await response.json();
+        const character = data.results;
+        res.json({
+            id: character.id,
+            name: character.name,
+            aliases: character.aliases,
+            gender: character.gender,
+            origin: character.origin?.name || null,
+            powers: character.powers?.map(power => power.name).join(", ") || null,
+            image: character.image?.medium_url || null,
+            description: character.description,
+            deck: character.deck,
+            publisher: character.publisher?.name || null,
+            count_of_issue_appearances: character.count_of_issue_appearances
+        });
+    } catch (error) {
+        res.status(500).json({ error: "An error occurred while fetching character details" });
+    }
+    })
 export default router;
