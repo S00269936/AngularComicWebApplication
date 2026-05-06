@@ -19,9 +19,11 @@ export class ComicVineAPISerivce {
     const url = `${this.apiUrl}/characters/search?query=${encodeURIComponent(query)}`;
     this.http.get<CharacterSearchResults>(url).pipe(take(1)).subscribe({
       next: (data) => {
+        console.log(data);
         this.characters.set(data.results);
       },
       error: () => {
+        console.error(Error);
         this.characters.set([]); // Clear previous results
         this.errorMessage.set('An error occurred while fetching character data. Please try again later.');
       }

@@ -1,1 +1,13 @@
-<p>results works!</p>
+<div>
+    @for (character of characters; track character.id){
+        <div>
+            <div>
+                <img [src]="character.image || `assets/placeholder.png`" alt="{{character.name}}" class="character-image">
+            </div>
+            <div>
+                <h5>{{character.name}}</h5>
+                <p>{{character.deck || `No description found.`}}</p>
+            </div>
+        </div>
+    }
+</div>
