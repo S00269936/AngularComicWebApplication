@@ -11,6 +11,7 @@ export class ComicVineAPISerivce {
   private apiUrl = environment.apiUrl; //links to backend
 
   characters = signal<CharacterResult[]>([]);
+  characterDetails = signal<CharacterDetails | null>(null);
   errorMessage = signal<string>('');
   constructor(private http: HttpClient) {}
 
@@ -29,4 +30,17 @@ export class ComicVineAPISerivce {
       }
     });
 }
+
+  searchCharacterDetails(id: string) {
+    this.errorMessage.set('');
+    const url = `${this.apiUrl}/characters/${id}`;
+    this.http.get<CharacterDetails>(url).pipe(take(1)).subscribe({next:(data) =>{
+      this.characterDetails.set(data);
+    },
+    error: () => {
+      console.error(Error);
+      this.characterDetails.set(null);
+      this.errorMessage.set('An error occurred while fetching character details. Please try again later.');
+    }});
+  }
 }
