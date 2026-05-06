@@ -1,9 +1,16 @@
-<nav>
-    <img src="logo.jpeg" alt="Logo" class="logo">
-    <button class="btn btn-primary" routerLink="">Characters</button>
-    <button class="btn btn-primary" routerLink="">Favourites</button>
-    <button class="btn btn-primary" routerLink="">About</button>
-  </nav>
+<nav class="navbar navbar-expan-md customNav">
+  <div class="container-fluid">
+    <a class="navbar-brand customBrand align-items-center" routerLink="/">
+      <img src="assets/logo.png" alt="logo" class="logo me-2">
+      <span>Comix Site</span>
+    </a>
+    <div class="ms-auto d-flex gap-3">
+      <a routerLink="/" class="btn customButton">Characters</a>
+      <a routerLink="/favourites" class="btn customButton">Favourites</a>
+      <a routerLink="/about" class="btn customButton">About</a>
+    </div>
+  </div>
+</nav>
   <app-search (search)="onSearch($event)"></app-search>
   @if (comicVineService.errorMessage()){
     <div class="alert-danger">
