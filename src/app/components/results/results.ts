@@ -11,4 +11,22 @@ import { RouterLink } from '@angular/router'; //to allow the character cards to 
 })
 export class Results {
   @Input() characters: CharacterResult[] = [];
+
+  //Pagination
+  currentPage: number = 1;
+  pageSize: number = 6;
+  get totalPages(){
+    return Math.ceil(this.characters.length / this.pageSize);
+    //calculates total pages based on number oc characters and page size
+  }
+  nextPage(){
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+    }
+  }
+  previousPage(){
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
+  }
 }

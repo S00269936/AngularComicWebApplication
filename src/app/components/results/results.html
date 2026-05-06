@@ -1,14 +1,23 @@
-<div>
-    @for (character of characters; track character.id){
-        <div>
-            <div>
-                <img [src]="character.image || `assets/placeholder.png`" alt="{{character.name}}" class="character-image">
-            </div>
-            <div>
-                <h5>{{character.name}}</h5>
-                <p>{{character.deck || `No description found.`}}</p>
-                <a [routerLink]="['/character', character.id]" class="btn btn-secondary">View Details</a>
-            </div>
+@if (characters.length > 0){
+    <div class="container results mt-4">
+        <div class="row g-4">
+            @for (character of characters; track character.id){
+                <div class="col-md-4">
+                    <div class="card characterCard h-100">
+                        <img [src]="character.image || 'assets/placeholder.png'" [alt]="character.name" class="card-img-top characterImg">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">{{character.name}}</h5>
+                            <p class="card-text">{{character.deck || 'No description available.'}}</p>
+                            <a [routerLink]="['/character', character.id]" class="btn viewBtn mt-auto">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            }
         </div>
-    }
-</div>
+        <div class="pagination">
+            <button class="btn paginationBtn" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+            <span class="pageInfo">Page {{currentPage}} of {{totalPages}}</span>
+            <button class="btn paginationBtn" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+        </div>
+    </div>
+}
