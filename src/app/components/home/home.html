@@ -4,4 +4,4 @@
     <button class="btn btn-primary" routerLink="">Favourites</button>
     <button class="btn btn-primary" routerLink="">About</button>
   </nav>
-  <app-search></app-search>
+  <app-search (search)="onSearch($event)"></app-search>
