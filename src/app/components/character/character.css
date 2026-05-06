@@ -1,5 +1,18 @@
 .goBackBtn{
-    width: 200px;
+    padding: 10px 20px;
+    background: #1E3A8A;
+    color: white;
+    border: 3px solid #000;
+    border-radius: 12px;
+    width: 400px;
+    font-weight: 900;
+    text-transform: uppercase;
+    box-shadow: 4px 4px 0 #000;
+}
+.goBackBtn:hover{
+    background: #3B82F6;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #000;
 }
 .characterPage{
     max-width: 1000px;
@@ -9,7 +22,7 @@
     border-radius: 20px;
     background: #FFFFFF;
     border: 3px solid #1E3A8A;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 4px 4px 0 #000;
 }
 .characterImg{
     width: 100%;
