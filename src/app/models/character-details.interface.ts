@@ -27,8 +27,10 @@ export interface CharacterSearchResults {
     enemies?: string;    // seperated by comma
     first_issue?: string;
     description?: string;
+    deck?: string;
     image?: string;
     publisher?: string;
+    count_of_issue_appearances?: number;
     status_code: number;
     error?: string;
   }
