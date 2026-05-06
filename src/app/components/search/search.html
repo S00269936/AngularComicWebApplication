@@ -1,2 +1,6 @@
-<input type="text" [(ngModel)]="searchTerm" placeholder="Search Characters..." class="search-input" />
-<button (click)="submitSearch()">Search</button>
+<div class="container customSearchDiv">
+    <div class="input-group customSearch">
+        <input type="text" [(ngModel)]="searchTerm" placeholder="Search Characters..." class="form-control customSearchInput" (keyup.enter)="submitSearch()">
+        <button class="btn searchBtn" (click)="submitSearch()">Search</button>
+    </div>
+</div>
