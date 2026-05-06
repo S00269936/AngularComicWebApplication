@@ -15,9 +15,12 @@ export class Character implements OnInit {
   route = inject(ActivatedRoute);
   //Activated route means that this component is being rendered as part of the route
   ngOnInit(){
+    this.route.paramMap.subscribe(params => {
     const id= this.route.snapshot.paramMap.get('id');
     if (id){
+      this.comicVineService.characterDetails.set(null);
       this.comicVineService.searchCharacterDetails(id);
     }
+  });
   }
-  }
+}
