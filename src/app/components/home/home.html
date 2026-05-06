@@ -5,3 +5,9 @@
     <button class="btn btn-primary" routerLink="">About</button>
   </nav>
   <app-search (search)="onSearch($event)"></app-search>
+  @if (comicVineService.errorMessage()){
+    <div class="alert-danger">
+        {{comicVineService.errorMessage()}}
+    </div>
+  }
+  <app-results [characters]="comicVineService.characters"></app-results>
