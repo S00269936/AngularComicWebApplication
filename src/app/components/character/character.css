@@ -7,12 +7,16 @@
 .characterDetailCard{
     padding: 2rem;
     border-radius: 20px;
+    background: #FFFFFF;
+    border: 3px solid #1E3A8A;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 .characterImg{
     width: 100%;
     height: 500px;
     object-fit: cover;
     border-radius: 15px;
+    border: 3px solid #1E3A8A;
 }
 .characterAccordion{
     height: 100%;
@@ -21,4 +25,41 @@
 .accordion-body{
     max-height: 300px;
     overflow-y: auto;
+    background: #FFFFFF;
+    border-top: 2px solid #E5E7EB;
 }
+.infoPanel{
+    border: 2px solid #3B82F6;
+    border-radius: 16px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background: #F9FAFB;
+}
+.infoPanel h2{
+    color: #1E3A8A;
+    font-weight: 800;
+    font-family: 'Bangers', cursive;
+}
+.accordion-button{
+    background-color: #3B82F6;
+    color: white;
+    font-weight: 600;
+}
+.accordion-button:not(.collapsed) {
+    background-color: #1E3A8A;
+    color: white;
+  }
+.favouriteBtn{
+    background: #FACC15;
+    border: none;
+    font-weight: bold;
+    color: #111;
+}
+.characterDetailCard::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    pointer-events: none;
+  }

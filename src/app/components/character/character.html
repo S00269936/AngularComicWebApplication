@@ -1,4 +1,4 @@
-<a routerLink="/" class="btn btn-secondary d-block mb-3 goBackBtn">Go back</a>
+<a routerLink="/" class="btn btn-secondary d-block mx-auto mb-3 goBackBtn">Go back</a>
 @if (comicVineService.characterDetails()){
     <div class="container characterPage">
         <div class="card characterDetailCard">
@@ -8,6 +8,13 @@
                     [src]="comicVineService.characterDetails()?.image || 'assets/placeholder.png'" [alt]="comicVineService.characterDetails()?.name"
                     class="img-fluid characterImg">
                 </div>
+                <div class="col-md-8">
+                    <div class="infoPanel">
+                        <h2 class="text-center mb-3">
+                            {{comicVineService.characterDetails()?.name || 'Unknown Character'}}
+                        </h2>
+                    </div>
+                
                 <div class="accordion" id="characterAccordion">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
@@ -45,7 +52,8 @@
                     </div>
                 </div>
             </div>
-            <button class="btn mt-3 btn-warning">Favourite</button>
+            <button class="btn mt-3 btn-warning favouriteBtn">Favourite</button>
+            </div>
         </div>
     </div>
 }
