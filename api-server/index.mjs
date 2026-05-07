@@ -16,6 +16,7 @@ app.get("/api/test", (req, res) => {
 
 app.use("/api/characters", characters); //characters.mjs
 app.use("/api/favourites", favourites); //favourites.mjs
+console.log("favourites route set up");
 // start the Express server
 app.listen(PORT, () => {
     console.log(`Server is running on port: ${PORT}`);
