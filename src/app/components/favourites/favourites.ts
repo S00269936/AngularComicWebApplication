@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Favourites } from '../../myServices/favourites';
 
 @Component({
   selector: 'app-favourites',
@@ -6,4 +7,9 @@ import { Component } from '@angular/core';
   templateUrl: './favourites.html',
   styleUrl: './favourites.css',
 })
-export class Favourites {}
+export class FavouritesComp implements OnInit {
+  constructor(public favouritesService: Favourites) {}
+  ngOnInit() {
+    this.favouritesService.getFavourites();
+  }
+}
