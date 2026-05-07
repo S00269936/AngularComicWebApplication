@@ -27,7 +27,7 @@
                                 </h2>
                                 <div id="basicInfo" class="accordion-collapse collapse show" data-bs-parent="#faveAccordion">
                                   <div class="accordion-body">
-                                    <p><strong>Real Name:</strong> {{ selectedFave.real_name || 'Unknown' }}</p>
+                                    <p><strong>Name:</strong> {{ selectedFave.name || 'Unknown' }}</p>
                                     <p><strong>Aliases:</strong> {{ selectedFave.aliases || 'None' }}</p>
                                     <p><strong>Publisher:</strong> {{ selectedFave.publisher || 'Unknown' }}</p>
                                     <p><strong>Origin:</strong> {{ selectedFave.origin || 'Unknown' }}</p>
@@ -70,14 +70,8 @@
                                     <p class="mb-2">
                                       {{ selectedFave.note || 'No note added yet.' }}
                                     </p>
-                                    <textarea
-                                      class="form-control noteBox"
-                                      [(ngModel)]="selectedFave.note"
-                                      placeholder="Add a note about this character..."
-                                    ></textarea>
-                                    <button class="btn noteBtn mt-3" (click)="updateNote(selectedFave)">
-                                      Save Note
-                                    </button>
+                                    <textarea class="form-control noteBox"[(ngModel)]="noteInput" placeholder="Add a note about this character..."></textarea> 
+                                    <button type="button" class="btn noteBtn mt-3" (click)="saveNote()">Save Note</button>
                                   </div>
                                 </div>
                               </div>

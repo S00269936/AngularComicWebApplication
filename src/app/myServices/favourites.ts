@@ -32,9 +32,7 @@ export class Favourites {
 }
   updateNote(id: string, note: string) {
     const url = this._apiUrl + '/note/' + id;
-    this._http.put(url, { note }).subscribe(() => {
-      this.getFavourites(); //refresh the list after updating the note
-    });
+      return this._http.patch(url, {note});
 }
   deleteFavourite(id: string){
     const url = this._apiUrl + '/' + id;
