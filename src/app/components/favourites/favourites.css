@@ -36,5 +36,75 @@
     background: #f9fafb;
 }
 .faveList h3{
-    
+    color: #1E3A8A;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-family: 'Bangers', cursive;
+    margin-bottom: 20px;
+}
+.listItem{
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 3px solid #000;
+    border-radius: 12px;
+    background: #facc15;
+    font-weight: 800;
+    font-family: 'Bangers', cursive;
+    text-align: left;
+}
+.listItem:hover{
+    background: #dc2626;
+    color: white;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #000;
+}
+.selectedFaveImg{
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border: 4px solid #000;
+    border-radius: 20px;
+}
+.selectedFave h2{
+    color: #1E3A8A;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-family: 'Bangers', cursive;
+    margin-top: 20px;
+}
+.noteBox{
+    border: 3px solid #000;
+    border-radius: 12px;
+    min-height: 90px;
+}
+.noteBtn{
+    background: #facc15;
+    border: 3px solid #000;
+    font-weight: 900;
+    font-family: 'Bangers', cursive;
+}
+.noteBtn:hover{
+    background: #dc2626;
+    color: white;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #000;
+}
+.removeBtn{
+    background: #facc15;
+    border: 3px solid #000;
+    font-weight: 900;
+    font-family: 'Bangers', cursive;
+}
+.removeBtn:hover{
+    background: #dc2626;
+    color: white;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #000;
+}
+.noSelection{
+    align-items: center;
+    font-weight: 900;
+    color: #1E3A8A;
+    font-family: 'Bangers', cursive;
 }

@@ -4,7 +4,7 @@
         <div class="col-md-4">
             <div class="faveList">
                 <h3>Your Favourites</h3>
-                @for (fave of favouritesService.favourites(); track fave.id){
+                @for (fave of favouritesService.favourites(); track fave._id){
                     <button class="listItem" (click)="selectFave(fave)">{{fave.name}}</button>
                 }
             </div>
@@ -17,22 +17,78 @@
                             <img [src]="selectedFave.image" class="selectedFaveImg">
                         </div>
                         <div class="col-md-7">
-                            <h2>{{selectedFave.name}}</h2>
-                            <p><strong>Real Name:</strong> {{selectedFave.real_name || 'Unknown'}}</p>
-                            <p><strong>Aliases:</strong> {{selectedFave.aliases || 'None'}}</p>
-                            <p><strong>Publisher:</strong> {{selectedFave.publisher || 'Unknown'}}</p>
-                            <p><strong>Origin:</strong> {{selectedFave.origin || 'Unknown'}}</p>
-                            <p><strong>Issues:</strong> {{selectedFave.count_of_issue_appearances || 'Unknown'}}</p>
-                            <p><strong>Powers:</strong> {{selectedFave.powers || 'No powers information found.'}}</p>
-                            <p><strong>Description:</strong> {{selectedFave.deck || selectedFave.description || 'No description found.'}}</p>
-                            <textarea class="form-control noteBox" [(ngModel)]="selectedFave.note" placeholder="Add a note about this character..."></textarea>
-                            <div class="d-flex gap-3 mt-3">
-                                <button class="btn removeBtn" (click)="delete(selectedFave.id)">Remove from Favourites</button>
+                            <h2>{{ selectedFave.name }}</h2>
+                            <div class="accordion" id="faveAccordion">
+                              <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#basicInfo">
+                                    Basic Info
+                                  </button>
+                                </h2>
+                                <div id="basicInfo" class="accordion-collapse collapse show" data-bs-parent="#faveAccordion">
+                                  <div class="accordion-body">
+                                    <p><strong>Real Name:</strong> {{ selectedFave.real_name || 'Unknown' }}</p>
+                                    <p><strong>Aliases:</strong> {{ selectedFave.aliases || 'None' }}</p>
+                                    <p><strong>Publisher:</strong> {{ selectedFave.publisher || 'Unknown' }}</p>
+                                    <p><strong>Origin:</strong> {{ selectedFave.origin || 'Unknown' }}</p>
+                                    <p><strong>Issues:</strong> {{ selectedFave.count_of_issue_appearances || 'Unknown' }}</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#powersInfo">
+                                    Powers
+                                  </button>
+                                </h2>
+                                <div id="powersInfo" class="accordion-collapse collapse" data-bs-parent="#faveAccordion">
+                                  <div class="accordion-body">
+                                    {{ selectedFave.powers || 'No powers information found.' }}
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#descriptionInfo">
+                                    Description
+                                  </button>
+                                </h2>
+                                <div id="descriptionInfo" class="accordion-collapse collapse" data-bs-parent="#faveAccordion">
+                                  <div class="accordion-body">
+                                    {{ selectedFave.deck || selectedFave.description || 'No description found.' }}
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#noteInfo">
+                                    Your Note
+                                  </button>
+                                </h2>
+                                <div id="noteInfo" class="accordion-collapse collapse" data-bs-parent="#faveAccordion">
+                                  <div class="accordion-body">
+                                    <p class="mb-2">
+                                      {{ selectedFave.note || 'No note added yet.' }}
+                                    </p>
+                                    <textarea
+                                      class="form-control noteBox"
+                                      [(ngModel)]="selectedFave.note"
+                                      placeholder="Add a note about this character..."
+                                    ></textarea>
+                                    <button class="btn noteBtn mt-3" (click)="updateNote(selectedFave)">
+                                      Save Note
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
-                        </div>
+                            <button class="btn removeBtn mt-3" (click)="delete(selectedFave._id)">
+                              Remove from Favourites
+                            </button>
+                          </div>
                     </div>
                 </div>
-            } 
+            }
             @else {
                 <div class="noSelection">
                     <h3>No character selected</h3>
