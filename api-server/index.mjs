@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import "dotenv/config";
 import characters from "./routes/characters.mjs";
+import favourites from "./routes/favourites.mjs";
 
 const PORT = process.env.PORT || 5050;
 const app = express();
@@ -14,6 +15,7 @@ app.get("/api/test", (req, res) => {
 });
 
 app.use("/api/characters", characters); //characters.mjs
+app.use("/api/favourites", favourites); //favourites.mjs
 // start the Express server
 app.listen(PORT, () => {
     console.log(`Server is running on port: ${PORT}`);

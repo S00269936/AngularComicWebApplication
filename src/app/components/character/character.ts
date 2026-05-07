@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { inject, OnInit } from '@angular/core';
 import { RouterLink, ActivatedRoute } from '@angular/router'; //to allow the character cards to be clickable
 import { ComicVineAPISerivce } from '../../myServices/comic-vine-apiserivce';
+import { Favourites } from '../../myServices/favourites';
 
 @Component({
   selector: 'app-character',
@@ -12,6 +13,7 @@ import { ComicVineAPISerivce } from '../../myServices/comic-vine-apiserivce';
 })
 export class Character implements OnInit {
   comicVineService = inject(ComicVineAPISerivce);
+  favouritesService = inject(Favourites);
   route = inject(ActivatedRoute);
   //Activated route means that this component is being rendered as part of the route
   ngOnInit(){
@@ -23,4 +25,10 @@ export class Character implements OnInit {
     }
   });
   }
+  addToFavourites(){
+    const character = this.comicVineService.characterDetails();
+    if (character){
+      this.favouritesService.addFavourite(character);
+    }
+}
 }
