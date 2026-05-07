@@ -21,9 +21,7 @@
                             <div class="accordion" id="faveAccordion">
                               <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#basicInfo">
-                                    Basic Info
-                                  </button>
+                                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#basicInfo">Basic Info</button>
                                 </h2>
                                 <div id="basicInfo" class="accordion-collapse collapse show" data-bs-parent="#faveAccordion">
                                   <div class="accordion-body">
@@ -37,21 +35,27 @@
                               </div>
                               <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#powersInfo">
-                                    Powers
-                                  </button>
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#powersInfo">Powers</button>
                                 </h2>
                                 <div id="powersInfo" class="accordion-collapse collapse" data-bs-parent="#faveAccordion">
-                                  <div class="accordion-body">
-                                    {{ selectedFave.powers || 'No powers information found.' }}
+                                  <div class="accordion-body powers">
+                                    @if (formatPowers(selectedFave.powers).length > 0) {
+                                        <div class="d-flex flex-wrap gap-2">
+                                          @for (power of formatPowers(selectedFave.powers); track power) {
+                                            <span class="badge powerBadge">
+                                              {{ power }}
+                                            </span>
+                                          }
+                                        </div>
+                                      } @else {
+                                        <p>No powers information found.</p>
+                                      }
                                   </div>
                                 </div>
                               </div>
                               <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#descriptionInfo">
-                                    Description
-                                  </button>
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#descriptionInfo">Description</button>
                                 </h2>
                                 <div id="descriptionInfo" class="accordion-collapse collapse" data-bs-parent="#faveAccordion">
                                   <div class="accordion-body">
@@ -61,24 +65,18 @@
                               </div>
                               <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#noteInfo">
-                                    Your Note
-                                  </button>
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#noteInfo">Your Note</button>
                                 </h2>
                                 <div id="noteInfo" class="accordion-collapse collapse" data-bs-parent="#faveAccordion">
                                   <div class="accordion-body">
-                                    <p class="mb-2">
-                                      {{ selectedFave.note || 'No note added yet.' }}
-                                    </p>
+                                    <p class="mb-2">{{ selectedFave.note || 'No note added yet.' }}</p>
                                     <textarea class="form-control noteBox"[(ngModel)]="noteInput" placeholder="Add a note about this character..."></textarea> 
                                     <button type="button" class="btn noteBtn mt-3" (click)="saveNote()">Save Note</button>
                                   </div>
                                 </div>
                               </div>
                             </div>
-                            <button class="btn removeBtn mt-3" (click)="delete(selectedFave._id)">
-                              Remove from Favourites
-                            </button>
+                            <button class="btn removeBtn mt-3" (click)="delete(selectedFave._id)">Remove from Favourites</button>
                           </div>
                     </div>
                 </div>

@@ -33,4 +33,8 @@ export class FavouritesComp implements OnInit {
     this.favouritesService.deleteFavourite(id);
     this.selectedFave = null; //deselect the favourite after deletion
   }
+  formatPowers(powers: string | undefined): string[]{
+    if (!powers) return [];
+    return powers.split(',').map(power => power.trim());
+  }
 }

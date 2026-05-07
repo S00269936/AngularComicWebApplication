@@ -24,6 +24,7 @@ export class Favourites {
       image: character.image,
       publisher: character.publisher,
       deck: character.deck,
+      powers: character.powers,
       note: '' //empty for user to fill in
     };
     this._http.post(this._apiUrl, favourite).subscribe(() => {
