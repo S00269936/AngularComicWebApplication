@@ -1,1 +1,44 @@
-<p>favourites works!</p>
+<div class="container favePage my-4">
+    <a routerLink="/" class="goBack btn btn-warning">Go Back</a>
+    <div class="row g-4 favePanel">
+        <div class="col-md-4">
+            <div class="faveList">
+                <h3>Your Favourites</h3>
+                @for (fave of favouritesService.favourites(); track fave.id){
+                    <button class="listItem" (click)="selectFave(fave)">{{fave.name}}</button>
+                }
+            </div>
+        </div>
+        <div class="col-md-8">
+            @if (selectedFave){
+                <div class="selectedFave">
+                    <div class="row g-3">
+                        <div class="col-md-5">
+                            <img [src]="selectedFave.image" class="selectedFaveImg">
+                        </div>
+                        <div class="col-md-7">
+                            <h2>{{selectedFave.name}}</h2>
+                            <p><strong>Real Name:</strong> {{selectedFave.real_name || 'Unknown'}}</p>
+                            <p><strong>Aliases:</strong> {{selectedFave.aliases || 'None'}}</p>
+                            <p><strong>Publisher:</strong> {{selectedFave.publisher || 'Unknown'}}</p>
+                            <p><strong>Origin:</strong> {{selectedFave.origin || 'Unknown'}}</p>
+                            <p><strong>Issues:</strong> {{selectedFave.count_of_issue_appearances || 'Unknown'}}</p>
+                            <p><strong>Powers:</strong> {{selectedFave.powers || 'No powers information found.'}}</p>
+                            <p><strong>Description:</strong> {{selectedFave.deck || selectedFave.description || 'No description found.'}}</p>
+                            <textarea class="form-control noteBox" [(ngModel)]="selectedFave.note" placeholder="Add a note about this character..."></textarea>
+                            <div class="d-flex gap-3 mt-3">
+                                <button class="btn removeBtn" (click)="delete(selectedFave.id)">Remove from Favourites</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            } 
+            @else {
+                <div class="noSelection">
+                    <h3>No character selected</h3>
+                    <p>Please select a character from your favourites list to view details.</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>

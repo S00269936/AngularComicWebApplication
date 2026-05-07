@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Favourites } from '../../myServices/favourites';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-favourites',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './favourites.html',
   styleUrl: './favourites.css',
 })
