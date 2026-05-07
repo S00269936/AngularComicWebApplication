@@ -68,3 +68,24 @@
     font-weight: 700;
     color: #1E3A8A;
 }
+.noResultsCard{
+    border: 4px solid #000;
+    border-radius: 18px;
+    box-shadow: 6px 6px 0 #1E3A8A;
+    padding: 30px;
+    text-align: center;
+}
+.noResults{
+    font-weight: 900;
+    color: #1E3A8A;
+    text-transform: uppercase;
+    font-family: "Bangers", cursive;
+    font-size: 1.5rem;
+}
+.noResultsCard:hover{
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0 #dc2626;
+}
+.noResultsCard h3{
+    margin-bottom: 20px;
+}
