@@ -69,6 +69,12 @@
     font-weight: bold;
     color: #111;
 }
+.favouriteBtn:hover{
+    background: #DC2626;
+    color: white;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #000;
+}
 .characterDetailCard::after {
     content: "";
     position: absolute;

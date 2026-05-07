@@ -15,6 +15,9 @@ export class Results {
   //Pagination
   currentPage: number = 1;
   pageSize: number = 6;
+  ngOnChanges(){
+    this.currentPage = 1; //reset to first page when characters input changes
+  }
   get totalPages(){
     return Math.ceil(this.characters.length / this.pageSize);
     //calculates total pages based on number oc characters and page size
