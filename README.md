@@ -1,4 +1,7 @@
 # Wp1ProjectZH
+#SCROLL TO BOTTOM TO VIEW OVERVIEW CREATED BY ME
+
+
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.2.
 
@@ -58,3 +61,111 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 # wp1-project-2026-Zac-Herrity
+
+
+# Comic Character Finder
+
+Comic Character Finder is a web application that allows users to search for comic book characters, view information about them and save their favourite characters.
+
+The application was created as part of my Software Development studies and gave me experience working with Angular, TypeScript, Node.js, Express, APIs and MongoDB.
+
+## Features
+
+- Search for comic book characters
+- View character information and images
+- View details such as real name, aliases and publisher
+- Browse search results using pagination
+- Save characters to a favourites list
+- Remove characters from favourites
+- Add personal notes to favourite characters
+- Update saved notes
+- View detailed information about individual characters
+
+## Technologies Used
+
+- Angular
+- TypeScript
+- JavaScript
+- HTML
+- CSS
+- Bootstrap
+- Node.js
+- Express
+- MongoDB
+- Comic Vine API
+
+## How It Works
+
+Users can search for a comic book character using the search bar.
+
+The Angular frontend sends the search request to the Node.js and Express backend. The backend then communicates with the Comic Vine API and returns the character information to the application.
+
+Users can select a character to view more information about them.
+
+Characters can also be added to a favourites list. Favourite characters are stored in MongoDB so they can be viewed again later. Users can also add and update personal notes for their saved characters.
+
+## API
+
+The application uses its own Express API to handle requests between the Angular frontend, Comic Vine and MongoDB.
+
+The API handles:
+
+- Searching for characters
+- Getting character details
+- Getting saved favourites
+- Adding favourites
+- Updating notes
+- Removing favourites
+
+This allowed me to keep the frontend and backend parts of the application separate.
+
+## Database
+
+MongoDB is used to store favourite characters.
+
+Saved information includes:
+
+- Character ID
+- Character name
+- Real name
+- Aliases
+- Character image
+- Publisher
+- Description
+- Personal notes
+- Date added
+
+## What I Learned
+
+While developing this project I gained more experience with:
+
+- Building web applications with Angular
+- Working with TypeScript
+- Creating components and services
+- Angular routing
+- Working with REST APIs
+- Creating an API with Node.js and Express
+- Using MongoDB to store application data
+- CRUD operations
+- Working with external APIs
+- Pagination
+- Handling errors
+- Connecting a frontend, backend and database together
+
+## Future Improvements
+
+Some features I would like to add in the future include:
+
+- User accounts
+- Separate favourites for each user
+- More search filters
+- Improved character recommendations
+- Better mobile support
+- More information for each character
+- Improved UI and styling
+
+## About
+
+Comic Character Finder was developed as a college project while studying Software Development.
+
+The project helped me gain experience building a full stack web application and working with Angular, Node.js, Express, MongoDB and external APIs.
