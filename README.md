@@ -152,18 +152,6 @@ While developing this project I gained more experience with:
 - Handling errors
 - Connecting a frontend, backend and database together
 
-## Future Improvements
-
-Some features I would like to add in the future include:
-
-- User accounts
-- Separate favourites for each user
-- More search filters
-- Improved character recommendations
-- Better mobile support
-- More information for each character
-- Improved UI and styling
-
 ## About
 
 Comic Character Finder was developed as a college project while studying Software Development.
